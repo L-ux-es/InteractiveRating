@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <title>Frontend Mentor | Interactive rating component</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div id="rating-state" class="rating-state">
+        <img src="images/icon-star.svg" alt="start-icon"/>
+        <h1>How did we do?</h1>
+        <p>Please let us know how we did with your support request. All feedback is appreciated
+            to help us improve our offering!</p>
+        <form id="rating-form" onsubmit="return showThanks()">
+            <div class="radioButtons">
+                <div class="radioButton-container">
+                    <input type="radio" id="1" value="1" name="rate" required>
+                    <label for="1">1</label>
+                </div>
+                <div class="radioButton-container">
+                    <input type="radio" id="2" value="2" name="rate">
+                    <label for="2">2</label>
+                </div>
+                <div class="radioButton-container">
+                    <input type="radio" id="3" value="3" name="rate">
+                    <label for="3">3</label>
+                </div>
+                <div class="radioButton-container">
+                    <input type="radio" id="4" value="4" name="rate">
+                    <label for="4">4</label></div>
+                <div class="radioButton-container">
+                    <input type="radio" id="5" value="5" name="rate">
+                    <label for="5">5</label>
+                </div>
+            </div>
+            <button type="submit">SUBMIT</button>
+        </form>
+    </div>
+    <div class="thanks-state hidden" id="thanks-state">
+        <img src="images/illustration-thank-you.svg" alt="Illustration thank you"/>
+        <div class="container-selected-rate">You selected <span id="span-rate"></span> out of 5</div>
+        <h1> Thank you!</h1>
+        <p id="paragraph-thanks"> We appreciate you taking the time to give a rating. If you ever need more support,
+            don’t hesitate to get in touch!</p>
+    </div>
+</div>
+<div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Leo Sánchez</a>.
+</div>
+</body>
+<script>
+    const showThanks = (e) => {
+        const rateValue = document.getElementById('rating-form').elements.rate.value;
+        document.getElementById('span-rate').innerText = rateValue;
+        document.getElementById('rating-state').classList.add('hidden');
+        document.getElementById('thanks-state').classList.remove('hidden');
+        document.getElementById('thanks-state').classList.add('visible');
+        return false;
+    }
+</script>
+</html>
